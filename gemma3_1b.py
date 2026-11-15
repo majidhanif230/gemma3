@@ -1,3 +1,4 @@
+import os
 import torch
 from transformers import AutoTokenizer, AutoModelForCausalLM
 
@@ -5,7 +6,7 @@ from transformers import AutoTokenizer, AutoModelForCausalLM
 # CONFIGURATION
 # ---------------------------
 MODEL_NAME = "majid230/gemma-3-1b-finetune"  # Your Hugging Face repo
-USE_AUTH_TOKEN = None  # Add your token if the repo is private
+USE_AUTH_TOKEN = os.environ.get("HF_TOKEN")  # Set the HF_TOKEN environment variable if the repo is private
 
 # Force CPU
 device = torch.device("cpu")
